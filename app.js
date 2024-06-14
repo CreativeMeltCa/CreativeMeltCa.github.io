@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://meltstore-kjq6nv3uv-melts-projects.vercel.app/api/products')
+    fetch('http://localhost:3001/api/products')  // Use your proxy server URL
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
