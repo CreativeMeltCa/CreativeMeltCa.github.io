@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/api/products')
+    fetch('proxyserver-c0s6fcl68-melts-projects.vercel.app/api/products') // Replace with your proxy server URL
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -45,16 +45,4 @@ function renderCart() {
     cart.forEach(item => {
         totalCost += item.price * item.quantity;
         const cartItem = document.createElement('li');
-        cartItem.innerHTML = `
-            ${item.title} - $${item.price} x ${item.quantity}
-            <button onclick="removeFromCart('${item.id}')">Remove</button>
-        `;
-        cartContainer.appendChild(cartItem);
-    });
-    document.getElementById('total-cost').textContent = totalCost.toFixed(2);
-}
-
-function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id);
-    renderCart();
-}
+       
