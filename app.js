@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            console.log('Fetched data:', data); // Debugging line
+            console.log('Fetched data:', data);
             const productsContainer = document.getElementById('products');
             data.forEach(product => {
                 const productElement = document.createElement('div');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
         .catch(error => {
-            console.error('Error fetching products:', error); // Debugging line
+            console.error('Error fetching products:', error);
         });
 });
 
