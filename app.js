@@ -1,7 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetch('https://meltstore-kjq6nv3uv-melts-projects.vercel.app/api/products')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
+            console.log('Fetched data:', data); // Debugging line
             const productsContainer = document.getElementById('products');
             data.forEach(product => {
                 const productElement = document.createElement('div');
@@ -15,7 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 productsContainer.appendChild(productElement);
             });
         })
-        .catch(error => console.error('Error fetching products:', error));
+        .catch(error => {
+            console.error('Error fetching products:', error); // Debugging line
+        });
 });
 
 let cart = [];
